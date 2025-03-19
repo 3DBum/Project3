@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && playerJumping == false)
+        if(Input.GetKeyDown(KeyCode.Space) && playerJumping == false) //if player is not on ground layer
         {
             rb.velocity = new Vector3(0, 5, 0);
             playerJumping = true;
