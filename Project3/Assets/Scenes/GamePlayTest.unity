@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 205366375}
   - component: {fileID: 205366374}
   - component: {fileID: 205366373}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 218523954}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 257232809}
   - component: {fileID: 257232808}
   - component: {fileID: 257232807}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -939,7 +939,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  playerJumping: 0
+  groundDrag: 0
+  orientation: {fileID: 0}
+  playerHeight: 0
+  JumpHeight: 0
+  jumpCooldown: 0
+  airMultiplier: 0
+  Ground:
+    serializedVersion: 2
+    m_Bits: 0
+  Wall:
+    serializedVersion: 2
+    m_Bits: 0
+  wallForce: 0
+  WallTime: 0
+  WallSpeed: 0
 --- !u!136 &281377331
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1042,7 +1056,7 @@ GameObject:
   - component: {fileID: 365105907}
   - component: {fileID: 365105906}
   - component: {fileID: 365105905}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1559,7 +1573,7 @@ GameObject:
   - component: {fileID: 759145630}
   - component: {fileID: 759145629}
   - component: {fileID: 759145633}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2449,7 +2463,7 @@ GameObject:
   - component: {fileID: 1522815318}
   - component: {fileID: 1522815317}
   - component: {fileID: 1522815316}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
