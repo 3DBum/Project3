@@ -17,10 +17,12 @@ public class MagnetGrapple : MonoBehaviour
     public float grappleRange;
     public LayerMask grappleLayer;
     private Collider[] hitColliders;
+    private Rigidbody rb;
 
     float distance;
     float nearestDistance;
     Vector3 closestPoint;
+    Vector3 point;
 
     Rigidbody Player;
     // Start is called before the first frame update
@@ -36,6 +38,7 @@ public class MagnetGrapple : MonoBehaviour
         if (Physics.CheckSphere(transform.position, grappleRange, grappleLayer))
         {
             canGrapple = true;
+            Debug.Log("Can Grapple");
         } else
         {
             canGrapple = false;
@@ -46,22 +49,22 @@ public class MagnetGrapple : MonoBehaviour
 
     private void Grapple()
     {
-        hitColliders = Physics.OverlapSphere(transform.position, grappleRange, grappleLayer, QueryTriggerInteraction.Collide);
-        foreach(var hitCollider in hitColliders)
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, grappleRange, grappleLayer, QueryTriggerInteraction.Collide);
+        foreach (Collider c in hitColliders)
         {
-            distance = Vector3.Distance(transform.position, hitCollider.transform.position);
-            if (distance < nearestDistance)
+            point = c.transform.position;
+            distance = Vector3.Distance(transform.position, c.transform.position);
+
+            if (nearestDistance != distance)
             {
-                nearestDistance = distance;
-                closestPoint = hitCollider.transform.position;
+                
             }
+
+            //Find a way to find the closest point and store that value, using an if (distance < closestDistance) does not account for
+            //if the player moves away and close to another collider.
+
+
         }
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Debug.Log(distance);
-            Debug.Log(closestPoint);
-        }
-        //if (canGrapple == true)
     }
 
     private void OnDrawGizmos()
