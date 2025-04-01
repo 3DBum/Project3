@@ -3155,6 +3155,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!54 &1308466784 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1609651874726153353, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
+  m_PrefabInstance: {fileID: 8184021567008403313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1369143424
 GameObject:
   m_ObjectHideFlags: 0
@@ -4625,6 +4630,18 @@ PrefabInstance:
     - target: {fileID: 1098612363892861166, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761230979288704343, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1308466784}
+    - target: {fileID: 4761230979288704343, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
+      propertyPath: showGizmo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761230979288704343, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
+      propertyPath: grappleSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8115425185208993694, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_Name

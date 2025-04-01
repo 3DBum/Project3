@@ -15,20 +15,21 @@ public class MagnetGrapple : MonoBehaviour
 
     public bool canGrapple;
     public float grappleRange;
+    public float grappleSpeed;
     public LayerMask grappleLayer;
     private Collider[] hitColliders;
-    private Rigidbody rb;
+    Rigidbody rb;
 
     float distance;
     float nearestDistance;
     Vector3 closestPoint;
     Vector3 point;
-
-    Rigidbody Player;
+    Vector3 direction;
     // Start is called before the first frame update
     void Start()
     {
         canGrapple = false;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -38,33 +39,42 @@ public class MagnetGrapple : MonoBehaviour
         if (Physics.CheckSphere(transform.position, grappleRange, grappleLayer))
         {
             canGrapple = true;
-            Debug.Log("Can Grapple");
+            //Debug.Log("Can Grapple");
         } else
         {
             canGrapple = false;
         }
 
-        Grapple();
+        if (Input.GetKeyDown(KeyCode.Z) && canGrapple)
+        {
+            Grapple();
+        }
     }
 
     private void Grapple()
     {
+        nearestDistance = Mathf.Infinity;
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, grappleRange, grappleLayer, QueryTriggerInteraction.Collide);
         foreach (Collider c in hitColliders)
         {
             point = c.transform.position;
             distance = Vector3.Distance(transform.position, c.transform.position);
 
-            if (nearestDistance != distance)
+            if (distance < nearestDistance)
             {
-                
+                nearestDistance = distance;
+                closestPoint = point;
             }
 
             //Find a way to find the closest point and store that value, using an if (distance < closestDistance) does not account for
             //if the player moves away and close to another collider.
-
-
         }
+
+        direction = closestPoint - transform.position;
+        Vector3 modDirection = new Vector3(direction.x, direction.y - .75f, direction.z);
+        direction = modDirection;
+        rb.AddForce(direction.normalized * grappleSpeed * 10f, ForceMode.Impulse);
+
     }
 
     private void OnDrawGizmos()
