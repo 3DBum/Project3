@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GamePlayTest.unity
     guid: cc39db756ace37a4f93e865a952bd209
+  - enabled: 1
+    path: Assets/Scenes/ElectricityRoom.unity
+    guid: 98ea4c2313e5aea4d8106429796d8891
   m_configObjects: {}

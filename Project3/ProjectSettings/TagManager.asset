@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Level1
   - key1
+  - ElectricLevel
+  - ElectricalKey
+  - StorageLevel
+  - StorageKey
+  - MapLevel
+  - MapKey
   layers:
   - Default
   - TransparentFX
