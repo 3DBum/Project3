@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
+
     public float groundDrag;
 
     public Transform orientation;
@@ -32,9 +33,9 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
     Rigidbody rb;
 
-    // on start up, i may be over-commenting
     private void Start()
     {
+        moveSpeed = 7;
         canJump = true;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -57,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = 0;
     }
 
-    //also every update but different
     private void FixedUpdate()
     {
         Movement();
@@ -76,17 +76,17 @@ public class PlayerMovement : MonoBehaviour
 
             Jump();
 
-            //calls the jumpReset function, delayed by jumpCooldown variable
+            //Resets jump
             Invoke(nameof(JumpReset), jumpCooldown);
         }
     }
 
-    //moves the player by adding force and using the orientation input for direction where to go
+    //moves the player by adding force and using the orientation input for direction on where to go
     private void Movement()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        //changes amount of force if on air or on ground
+        //changes the amount of force if in the air or on the ground
         if (grounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //limits players speed
+    //limits the player's speed
     private void SpeedLimit()
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -147,12 +147,13 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.useGravity = false;
         wallRunning = true;
+        moveSpeed = 20;
 
         if (rb.velocity.magnitude <= WallSpeed)
         {
             rb.AddForce(orientation.forward * wallForce * Time.deltaTime);
 
-            //Uses force to make the character stick to the wall
+            //Uses force to make the player stick to the wall
             if (wallRight)
             {
                 rb.AddForce(orientation.right * wallForce / 5 * Time.deltaTime);
@@ -167,6 +168,7 @@ public class PlayerMovement : MonoBehaviour
     {
         wallRunning = false;
         rb.useGravity = true;
+        moveSpeed = 7;
     }
     private void WallCheck()
     {
