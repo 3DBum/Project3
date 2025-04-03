@@ -149,6 +149,8 @@ public class PlayerMovement : MonoBehaviour
         wallRunning = true;
         moveSpeed = 20;
 
+        transform.rotation = Quaternion.Euler(0, 90, 0);
+
         if (rb.velocity.magnitude <= WallSpeed)
         {
             rb.AddForce(orientation.forward * wallForce * Time.deltaTime);
