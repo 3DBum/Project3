@@ -179,5 +179,10 @@ public class PlayerMovement : MonoBehaviour
         {
             EndWallRun();
         } 
+
+        if (wallLeft && rb.velocity.magnitude == 0 || wallRight && rb.velocity.magnitude == 0)
+        {
+            EndWallRun();
+        } 
     }
 }
