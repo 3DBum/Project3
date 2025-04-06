@@ -17,15 +17,15 @@ public class PlayerMovement : MonoBehaviour
     bool canJump;
 
     public LayerMask Ground;
-    bool grounded;
+    public bool grounded;
 
     public LayerMask Wall;
     public float wallForce;
     public float WallTime;
     public float WallSpeed;
-    bool wallRight;
-    bool wallLeft;
-    bool wallRunning;
+    public bool wallRight;
+    public bool wallLeft;
+    public bool wallRunning;
 
     float horizontalInput;
     float verticalInput;
@@ -118,12 +118,6 @@ public class PlayerMovement : MonoBehaviour
         {
             canJump = false;
 
-            if (wallLeft && !Input.GetKey(KeyCode.D) || wallRight && !Input.GetKey(KeyCode.A))
-            {
-                rb.AddForce(Vector2.up * JumpHeight * 1.5f);
-                rb.AddForce(Vector3.up * JumpHeight * 0.5f);
-            }
-
             rb.AddForce(orientation.forward * JumpHeight * 1f);
         }
     }
@@ -159,10 +153,20 @@ public class PlayerMovement : MonoBehaviour
             if (wallRight)
             {
                 rb.AddForce(orientation.right * wallForce / 5 * Time.deltaTime);
+
+                if(Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.S))
+                {
+                    moveSpeed = 0;
+                }
             }
             else
             {
                 rb.AddForce(-orientation.right * wallForce / 5  * Time.deltaTime);
+
+                if(Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.S))
+                {
+                    moveSpeed = 0;
+                }
             }
         }
     }
@@ -172,19 +176,21 @@ public class PlayerMovement : MonoBehaviour
         rb.useGravity = true;
         moveSpeed = 7;
     }
-    private void WallCheck()
-    {
-        wallRight = Physics.Raycast(transform.position, orientation.right, 1f, Wall);
-        wallLeft = Physics.Raycast(transform.position, -orientation.right, 1f, Wall);
+     private void WallCheck()
+     {
+         wallRight = Physics.Raycast(transform.position, orientation.right, 1f, Wall);
+         wallLeft = Physics.Raycast(transform.position, -orientation.right, 1f, Wall);
 
-        if (!wallLeft && !wallRight)
-        {
-            EndWallRun();
-        } 
+         if (!wallLeft && !wallRight)
+         {
+             EndWallRun();
+         } 
 
-        if (wallLeft && rb.velocity.magnitude == 0 || wallRight && rb.velocity.magnitude == 0)
-        {
-            EndWallRun();
-        } 
-    }
+         if (wallLeft && rb.velocity.magnitude == 0 || wallRight && rb.velocity.magnitude == 0)
+         {
+             EndWallRun();
+         }
+     }
+
+
 }
