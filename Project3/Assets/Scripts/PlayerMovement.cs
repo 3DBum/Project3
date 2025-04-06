@@ -141,9 +141,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.useGravity = false;
         wallRunning = true;
-        moveSpeed = 20;
-
-        transform.rotation = Quaternion.Euler(0, 90, 0);
+        moveSpeed = 13;
 
         if (rb.velocity.magnitude <= WallSpeed)
         {
