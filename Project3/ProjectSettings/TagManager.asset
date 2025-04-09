@@ -4,8 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Level1
-  - key1
   - ElectricLevel
   - ElectricalKey
   - StorageLevel

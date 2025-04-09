@@ -8,7 +8,6 @@ public class PlayerCollisions : MonoBehaviour
 {
     private static PlayerCollisions Player;
     public int Health;
-    public bool key1;
     public bool ElectricalKey;
     public bool StorageKey;
     public bool MapKey;
@@ -33,7 +32,6 @@ public class PlayerCollisions : MonoBehaviour
         }
 
         Health = 3;
-        key1 = false;
         ElectricalKey = false;
         StorageKey = false;
         MapKey = false;
@@ -49,20 +47,6 @@ public class PlayerCollisions : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Level1" && key1 == false)
-        {
-            transform.position = new Vector3(0.01f, 0.965f, -1.90f);
-            SceneManager.LoadScene("GamePlayTest");
-        }
-
-        if(collision.gameObject.tag == "key1")
-        {
-            Destroy(collision.gameObject);
-            key1 = true;
-            transform.position = new Vector3(0.01f, 0.965f, -1.90f);
-            SceneManager.LoadScene("Hub");
-        }
-
         if(collision.gameObject.tag == "ElectricLevel" && ElectricalKey == false)
         {
             transform.position = new Vector3(2.780f, 0.796f, -3.94f);
