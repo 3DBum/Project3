@@ -1,24 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerCollisions : MonoBehaviour
 {
     private static PlayerCollisions Player;
-    public GameObject Level1;
-    public GameObject ElectricLevel;
-    public GameObject StorageLevel;
-    public GameObject MapLevel;
+    public int Health;
     public bool key1;
     public bool ElectricalKey;
     public bool StorageKey;
     public bool MapKey;
+    public bool Damage;
+
+    GameManager GameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(this);
+
+        GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         if(Player == null)
         {
@@ -29,17 +32,19 @@ public class PlayerCollisions : MonoBehaviour
             Destroy(gameObject);
         }
 
+        Health = 3;
         key1 = false;
         ElectricalKey = false;
         StorageKey = false;
         MapKey = false;
+        Damage = false;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-
+    
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -68,8 +73,10 @@ public class PlayerCollisions : MonoBehaviour
         {
             Destroy(collision.gameObject);
             ElectricalKey = true;
-            transform.position = new Vector3(0.01f, 0.965f, -1.90f);
-            SceneManager.LoadScene("Hub");
+           // transform.position = new Vector3(0.01f, 0.965f, -1.90f);
+           // SceneManager.LoadScene("Hub");
+            GameManager.Win();
+
         }
 
         if(collision.gameObject.tag == "StorageLevel" && StorageKey == false)
@@ -99,6 +106,23 @@ public class PlayerCollisions : MonoBehaviour
             transform.position = new Vector3(0.01f, 0.965f, -1.90f);
             SceneManager.LoadScene("Hub");
         }
+
+        if(collision.gameObject.tag == "Damage")
+        {
+            CheckHealth();
+            transform.position = new Vector3(2.780f, 0.796f, -3.94f);
+        }
         
+    }
+
+    public void CheckHealth()
+    {
+        Health--;
+        Debug.Log("Player lost a life");
+
+        if(Health == 0)
+        {
+            GameManager.Lose();
+        }
     }
 }

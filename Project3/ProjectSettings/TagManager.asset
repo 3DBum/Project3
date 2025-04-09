@@ -12,6 +12,7 @@ TagManager:
   - StorageKey
   - MapLevel
   - MapKey
+  - Damage
   layers:
   - Default
   - TransparentFX
