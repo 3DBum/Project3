@@ -17,12 +17,12 @@ public class Freelookcamera : MonoBehaviour
     {
         if(PlayerMovement.wallRunning == true)
         {
-            Debug.Log("Freelook disabled");
+            //Debug.Log("Freelook disabled");
             Freelook.SetActive(false);
         }
         if(PlayerMovement.wallRunning == false && PlayerMovement.grounded == true)
         {
-            Debug.Log("Freelook enabled");
+            //Debug.Log("Freelook enabled");
             Freelook.SetActive(true);
 
         }  

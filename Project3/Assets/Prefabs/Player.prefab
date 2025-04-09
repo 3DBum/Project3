@@ -831,7 +831,8 @@ GameObject:
   - component: {fileID: 3268075601993678834}
   - component: {fileID: 1798175451163067509}
   - component: {fileID: 5408544192220544885}
-  - component: {fileID: 4195486132587705334}
+  - component: {fileID: 3026086318198213528}
+  - component: {fileID: 5270176363414566145}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -896,12 +897,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  speedLimit: 18
   groundDrag: 5
   orientation: {fileID: 3486177289459498179}
   playerHeight: 1.75
   JumpHeight: 10
   jumpCooldown: 0.25
-  airMultiplier: 0.4
+  airMultiplier: 0.1
   Ground:
     serializedVersion: 2
     m_Bits: 64
@@ -962,7 +964,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4195486132587705334
+--- !u!114 &3026086318198213528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -971,16 +973,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 4521633702657320325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83465c0695cc8b04f91306cbccfebc62, type: 3}
+  m_Script: {fileID: 11500000, guid: 98208f9b24c432c498faea76e3857902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   showGizmo: 1
   canGrapple: 0
+  grounded: 0
   grappleRange: 15
-  grappleSpeed: 5
+  gravity: -18
+  cooldown: 1.3
+  fVelocity: 9
   grappleLayer:
     serializedVersion: 2
     m_Bits: 256
+  movement: {fileID: 3268075601993678834}
+--- !u!114 &5270176363414566145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4521633702657320325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4a77c8dd05e8941b7444bdd2e1a51e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4535840249528176830
 GameObject:
   m_ObjectHideFlags: 0

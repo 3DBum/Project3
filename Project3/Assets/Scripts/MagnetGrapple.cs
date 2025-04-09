@@ -18,7 +18,9 @@ public class MagnetGrapple : MonoBehaviour
     public float grappleSpeed;
     public LayerMask grappleLayer;
     private Collider[] hitColliders;
+    public PlayerMovement movement;
     Rigidbody rb;
+    public bool grounded;
 
     float distance;
     float nearestDistance;
@@ -35,6 +37,8 @@ public class MagnetGrapple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        grounded = GetComponent<PlayerMovement>().grounded;
+
         //If a grappleable object is in range of the player, the player can use the magnet grapple
         if (Physics.CheckSphere(transform.position, grappleRange, grappleLayer))
         {
@@ -45,7 +49,7 @@ public class MagnetGrapple : MonoBehaviour
             canGrapple = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && canGrapple)
+        if (Input.GetKeyDown(KeyCode.Z) && canGrapple && grounded)
         {
             Grapple();
         }
