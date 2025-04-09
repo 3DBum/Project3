@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class NextMagnetGrapple : MonoBehaviour
 {
@@ -15,8 +16,8 @@ public class NextMagnetGrapple : MonoBehaviour
 
     //Add force to the player in the direction of the grappleable object, but going a little below 
 
+    public PlayerInputActions playerControls;
     [SerializeField] private bool showGizmo;
-
     public bool canGrapple;
     public bool grounded;
     public float grappleRange;
@@ -35,6 +36,28 @@ public class NextMagnetGrapple : MonoBehaviour
     Vector3 direction;
 
     private Collider[] hitColliders;
+    private InputAction grapple;
+
+    #region Player Controls Spaghetti
+
+    private void Awake()
+    {
+        playerControls = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        grapple = playerControls.Player.Grapple;
+        grapple.Enable();
+        grapple.performed += InputGrapple;
+    }
+
+    private void OnDisable()
+    {
+        grapple.Disable();
+    }
+
+    #endregion
 
     void Start()
     {
@@ -57,8 +80,11 @@ public class NextMagnetGrapple : MonoBehaviour
         {
             grappleDetected = false;
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Z) && canGrapple && grappleDetected)
+    private void InputGrapple(InputAction.CallbackContext context)
+    {
+        if (canGrapple && grappleDetected)
         {
             Grapple();
         }
@@ -95,7 +121,6 @@ public class NextMagnetGrapple : MonoBehaviour
         Vector3 velocityY = Vector3.up * Mathf.Sqrt((fVelocity * fVelocity) - (2 * gravity * displacementY));
         float time = ((fVelocity - velocityY.y) / gravity);
         Vector3 velocityXZ = (displacementXZ / time);
-
 
         return velocityXZ + velocityY;
     }

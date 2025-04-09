@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public PlayerInputActions playerControls;
     public float moveSpeed;
     public float speedLimit;
 
@@ -30,9 +32,33 @@ public class PlayerMovement : MonoBehaviour
 
     float horizontalInput;
     float verticalInput;
+    float tempHorizontal;
+    float tempVertical;
 
     Vector3 moveDirection;
     Rigidbody rb;
+
+    private InputAction move;
+
+    private void Awake()
+    {
+        playerControls = new PlayerInputActions();
+    }
+
+    #region Player Controls Spaghetti
+
+    private void OnEnable()
+    {
+        move = playerControls.Player.Move;
+        move.Enable();
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
+    }
+
+    #endregion
 
     private void Start()
     {
@@ -67,8 +93,13 @@ public class PlayerMovement : MonoBehaviour
     //Player input
     private void inputs()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        //horizontalInput = Input.GetAxisRaw("Horizontal"); //X values
+        //verticalInput = Input.GetAxisRaw("Vertical"); //Y values
+
+
+        var tempMove = move.ReadValue<Vector2>();
+        tempHorizontal = tempMove.x;
+        tempVertical = tempMove.y;
 
         //Player can jump if space pressed, on ground, and not wall running
         if (Input.GetKeyDown(KeyCode.Space) && grounded && canJump && wallRunning == false)
@@ -85,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
     //moves the player by adding force and using the orientation input for direction on where to go
     private void Movement()
     {
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        moveDirection = orientation.forward * tempVertical + orientation.right * tempHorizontal;
 
         //changes the amount of force if in the air or on the ground
         if (grounded)
