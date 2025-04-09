@@ -8420,50 +8420,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &263134247
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 263134249}
-  - component: {fileID: 263134248}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &263134248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263134247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be073eadd9b66bb4b92728f9acc521f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &263134249
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263134247}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.106693, y: 6, z: -1.4871924}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &272792134
 GameObject:
   m_ObjectHideFlags: 0
@@ -46488,19 +46444,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4853024464159483737, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.47072977
+      value: -0.47072977
       objectReference: {fileID: 0}
     - target: {fileID: 4853024464159483737, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12100127
+      value: -0.121001266
       objectReference: {fileID: 0}
     - target: {fileID: 4853024464159483737, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.84642416
+      value: 0.84642416
       objectReference: {fileID: 0}
     - target: {fileID: 4853024464159483737, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.21757367
+      value: -0.21757366
       objectReference: {fileID: 0}
     - target: {fileID: 6513176944283966391, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_FollowOffset.y
@@ -69524,5 +69480,4 @@ SceneRoots:
   - {fileID: 2037698880}
   - {fileID: 1608073344}
   - {fileID: 77869919}
-  - {fileID: 263134249}
   - {fileID: 1472804255}
