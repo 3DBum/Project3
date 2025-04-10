@@ -9335,7 +9335,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281479730
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -9348,7 +9348,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -57408,6 +57408,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 436010962}
     - target: {fileID: 3319986209252667598, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
+      propertyPath: winFirst
+      value: 
+      objectReference: {fileID: 734814967}
+    - target: {fileID: 3319986209252667598, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: PauseMenu
       value: 
       objectReference: {fileID: 388054539}
@@ -57416,9 +57420,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 715439692}
     - target: {fileID: 3319986209252667598, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
+      propertyPath: loseFirst
+      value: 
+      objectReference: {fileID: 250494883}
+    - target: {fileID: 3319986209252667598, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: HealthText
       value: 
       objectReference: {fileID: 769812501}
+    - target: {fileID: 3319986209252667598, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
+      propertyPath: pauseFirst
+      value: 
+      objectReference: {fileID: 1443242446}
     - target: {fileID: 3319986209252667598, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: ObjectiveText
       value: 
@@ -57481,19 +57493,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4853024464159483737, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.67404073
       objectReference: {fileID: 0}
     - target: {fileID: 4853024464159483737, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.17326249
       objectReference: {fileID: 0}
     - target: {fileID: 4853024464159483737, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.6954779
       objectReference: {fileID: 0}
     - target: {fileID: 4853024464159483737, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.17877293
       objectReference: {fileID: 0}
     - target: {fileID: 6513176944283966391, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_FollowOffset.y
@@ -66612,7 +66624,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281479730
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -66625,7 +66637,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -68142,7 +68154,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281479730
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -68155,7 +68167,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
