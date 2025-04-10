@@ -1108,7 +1108,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4521633702657320325}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af4a77c8dd05e8941b7444bdd2e1a51e, type: 3}
   m_Name: 
@@ -1442,6 +1442,9 @@ MonoBehaviour:
   WinMenu: {fileID: 0}
   LoseMenu: {fileID: 0}
   PauseMenu: {fileID: 0}
+  pauseFirst: {fileID: 0}
+  loseFirst: {fileID: 0}
+  winFirst: {fileID: 0}
   HealthText: {fileID: 0}
   TimerText: {fileID: 0}
   ObjectiveText: {fileID: 0}

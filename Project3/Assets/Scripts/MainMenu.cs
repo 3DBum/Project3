@@ -5,10 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+            Debug.Log("Application has quit!");
+        }
+    }
     public void PlayGame()
     {
         SceneManager.LoadScene("ElectricityRoom");
+        Cursor.visible = false;
     }
 
     public void HowToPlay()
@@ -26,11 +34,4 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
     }
-
-    public void QuitGame()
-    {
-        Debug.Log("Quit");
-        Application.Quit();
-    }
-
 }

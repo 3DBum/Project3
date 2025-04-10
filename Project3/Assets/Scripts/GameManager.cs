@@ -60,6 +60,12 @@ public class GameManager : MonoBehaviour
                 Lose();
             } 
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+            Debug.Log("Application has quit!");
         }  
     }
 
