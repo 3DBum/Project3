@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-  /*  public GameObject WinMenu;
+    public GameObject WinMenu;
     public GameObject LoseMenu;
-    public GameObject PauseMenu; */
+    public GameObject PauseMenu; 
     
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI TimerText;
@@ -46,10 +46,10 @@ public class GameManager : MonoBehaviour
             Pause();
         }
 
-        if(isPaused == true && Input.GetKeyDown(KeyCode.U))
+      /*  if(isPaused == true && Input.GetKeyDown(KeyCode.U))
         {
             UnPause();
-        }
+        }*/
 
         if(!isPaused)
         {
@@ -62,6 +62,12 @@ public class GameManager : MonoBehaviour
             {
                 Lose();
             } 
+
+            
+      /*  if(Input.GetKeyDown(KeyCode.R) && PlayerAlive == false)
+        {
+            Restart();
+        }*/
 
         }  
     }
@@ -80,7 +86,7 @@ public class GameManager : MonoBehaviour
         ObjectiveText.gameObject.SetActive(false);
         TimerText.gameObject.SetActive(false);
         HealthText.gameObject.SetActive(false);
-      //  WinMenu.SetActive(true);
+        WinMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;  
     }
@@ -91,7 +97,7 @@ public class GameManager : MonoBehaviour
         ObjectiveText.gameObject.SetActive(false);
         TimerText.gameObject.SetActive(false);
         HealthText.gameObject.SetActive(false);
-      //  LoseMenu.SetActive(true);
+        LoseMenu.SetActive(true);
 
         PlayerAlive = false;
         Time.timeScale = 0;
@@ -107,13 +113,13 @@ public class GameManager : MonoBehaviour
         ObjectiveText.gameObject.SetActive(false);
         TimerText.gameObject.SetActive(false);
         HealthText.gameObject.SetActive(false);
-       // PauseMenu.SetActive(true);
+        PauseMenu.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
-    private void UnPause()
+    public void UnPause()
     {
         Debug.Log("Game Unpaused");
         Time.timeScale = 1;
@@ -121,28 +127,19 @@ public class GameManager : MonoBehaviour
         ObjectiveText.gameObject.SetActive(true);
         TimerText.gameObject.SetActive(true);
         HealthText.gameObject.SetActive(true);
-       // PauseMenu.SetActive(false);
+        PauseMenu.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    private void Restart()
+    public void Restart()
     {
-        if(!PlayerAlive)
-        {
-            //Reload level
-           // SceneManager.LoadScene("");
-        }
-
-        if(PlayerWon)
-        {
-            //Load Menu
-           // SceneManager.LoadScene("");
-
-        }
-
+        SceneManager.LoadScene("ElectricityRoom");
     }
 
-
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");  
+    }
 }
