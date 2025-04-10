@@ -48,11 +48,6 @@ public class GameManager : MonoBehaviour
             Pause();
         }
 
-      /*  if(isPaused == true && Input.GetKeyDown(KeyCode.U))
-        {
-            UnPause();
-        }*/
-
         if(!isPaused)
         {
             Minutes = (int) Timer / 60;
@@ -64,12 +59,6 @@ public class GameManager : MonoBehaviour
             {
                 Lose();
             } 
-
-            
-      /*  if(Input.GetKeyDown(KeyCode.R) && PlayerAlive == false)
-        {
-            Restart();
-        }*/
 
         }  
     }

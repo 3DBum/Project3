@@ -20,18 +20,18 @@ public class PlayerCollisions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this);
+       // DontDestroyOnLoad(this);
 
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-        if(Player == null)
+       /* if(Player == null && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ElectricityRoom") == true)
         {
             Player = this;
         }
         else
         {
             Destroy(gameObject);
-        }
+        }*/
 
         Health = 3;
         ElectricalKey = false;
