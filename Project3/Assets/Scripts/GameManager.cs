@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject WinMenu;
     public GameObject LoseMenu;
-    public GameObject PauseMenu; 
+    public GameObject PauseMenu;
+    public GameObject pauseFirstButton, winFirstButton, loseFirstButton;
     
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI TimerText;
@@ -88,7 +90,8 @@ public class GameManager : MonoBehaviour
         HealthText.gameObject.SetActive(false);
         WinMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;  
+        Cursor.visible = true;
+        EventSystem.current.SetSelectedGameObject(winFirstButton);
     }
 
     public void Lose()
@@ -103,6 +106,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        EventSystem.current.SetSelectedGameObject(loseFirstButton);
     }
 
     private void Pause()
@@ -117,6 +121,7 @@ public class GameManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
     }
 
     public void UnPause()
@@ -128,6 +133,7 @@ public class GameManager : MonoBehaviour
         TimerText.gameObject.SetActive(true);
         HealthText.gameObject.SetActive(true);
         PauseMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
