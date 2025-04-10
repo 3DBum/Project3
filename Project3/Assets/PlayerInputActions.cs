@@ -98,6 +98,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WallRunLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""93e8b7cc-8d04-4418-8ba9-7fa702099b14"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WallRunRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6ea99b6-9c2c-49fb-98c6-72af92e2b2c7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -461,6 +479,50 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
                     ""action"": ""MenuOpenClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""170db577-6bfc-46cb-b5a3-ad8619a0f91c"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""WallRunLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e92311e7-6402-40b9-990d-2d28b8049c36"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WallRunLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""caea47e2-105f-49fa-a860-4118cd25d7f6"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""WallRunRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e227ba11-807f-4ef0-a431-548322024c2c"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WallRunRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1056,6 +1118,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_MenuOpenClose = m_Player.FindAction("MenuOpenClose", throwIfNotFound: true);
+        m_Player_WallRunLeft = m_Player.FindAction("WallRunLeft", throwIfNotFound: true);
+        m_Player_WallRunRight = m_Player.FindAction("WallRunRight", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1143,6 +1207,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_MenuOpenClose;
+    private readonly InputAction m_Player_WallRunLeft;
+    private readonly InputAction m_Player_WallRunRight;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1155,6 +1221,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Next => m_Wrapper.m_Player_Next;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @MenuOpenClose => m_Wrapper.m_Player_MenuOpenClose;
+        public InputAction @WallRunLeft => m_Wrapper.m_Player_WallRunLeft;
+        public InputAction @WallRunRight => m_Wrapper.m_Player_WallRunRight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1188,6 +1256,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @MenuOpenClose.started += instance.OnMenuOpenClose;
             @MenuOpenClose.performed += instance.OnMenuOpenClose;
             @MenuOpenClose.canceled += instance.OnMenuOpenClose;
+            @WallRunLeft.started += instance.OnWallRunLeft;
+            @WallRunLeft.performed += instance.OnWallRunLeft;
+            @WallRunLeft.canceled += instance.OnWallRunLeft;
+            @WallRunRight.started += instance.OnWallRunRight;
+            @WallRunRight.performed += instance.OnWallRunRight;
+            @WallRunRight.canceled += instance.OnWallRunRight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1216,6 +1290,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @MenuOpenClose.started -= instance.OnMenuOpenClose;
             @MenuOpenClose.performed -= instance.OnMenuOpenClose;
             @MenuOpenClose.canceled -= instance.OnMenuOpenClose;
+            @WallRunLeft.started -= instance.OnWallRunLeft;
+            @WallRunLeft.performed -= instance.OnWallRunLeft;
+            @WallRunLeft.canceled -= instance.OnWallRunLeft;
+            @WallRunRight.started -= instance.OnWallRunRight;
+            @WallRunRight.performed -= instance.OnWallRunRight;
+            @WallRunRight.canceled -= instance.OnWallRunRight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1406,6 +1486,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnNext(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnMenuOpenClose(InputAction.CallbackContext context);
+        void OnWallRunLeft(InputAction.CallbackContext context);
+        void OnWallRunRight(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

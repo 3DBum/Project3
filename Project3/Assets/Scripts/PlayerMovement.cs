@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
 
     private InputAction move;
+    private InputAction WallRunLeft;
+    private InputAction WallRunRight;
 
     private void Awake()
     {
@@ -49,12 +51,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
+        WallRunLeft = playerControls.Player.WallRunLeft;
+        WallRunRight = playerControls.Player.WallRunRight;
         move = playerControls.Player.Move;
+
+        WallRunLeft.Enable();
+        WallRunRight.Enable();
         move.Enable();
+
+        WallRunLeft.performed += WallInput;
+        WallRunRight.performed += WallInput;
     }
 
     private void OnDisable()
     {
+        WallRunLeft.Disable();
+        WallRunRight.Disable();
         move.Disable();
     }
 
@@ -74,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
         inputs();
         SpeedLimit();
         WallCheck();
-        WallInput();
 
         //makes a raycast to see if touching ground
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, Ground);
@@ -95,7 +106,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //horizontalInput = Input.GetAxisRaw("Horizontal"); //X values
         //verticalInput = Input.GetAxisRaw("Vertical"); //Y values
-
 
         var tempMove = move.ReadValue<Vector2>();
         tempHorizontal = tempMove.x;
@@ -122,7 +132,6 @@ public class PlayerMovement : MonoBehaviour
         if (grounded)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
         }
         else if (!grounded)
         {
@@ -158,17 +167,18 @@ public class PlayerMovement : MonoBehaviour
         canJump = true;
     }
 
-    private void WallInput()
+    private void WallInput(InputAction.CallbackContext context)
     {
-        if (Input.GetKey(KeyCode.D) && wallRight)
+        if (wallRight)
         {
             WallRun();
         } 
-        if (Input.GetKey(KeyCode.A) && wallLeft)
+        if (wallLeft)
         {
             WallRun();
         }
     }
+
     private void WallRun()
     {
         rb.useGravity = false;
