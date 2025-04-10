@@ -38,9 +38,11 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
     Rigidbody rb;
 
+    [SerializeField] private AudioClip jumpClip;
     private InputAction move;
     private InputAction WallRunLeft;
     private InputAction WallRunRight;
+    private InputAction jump;
 
     private void Awake()
     {
@@ -51,20 +53,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
+        jump = playerControls.Player.Jump;
         WallRunLeft = playerControls.Player.WallRunLeft;
         WallRunRight = playerControls.Player.WallRunRight;
         move = playerControls.Player.Move;
 
+        jump.Enable();
         WallRunLeft.Enable();
         WallRunRight.Enable();
         move.Enable();
 
+        jump.performed += InputJump;
         WallRunLeft.performed += WallInput;
         WallRunRight.performed += WallInput;
     }
 
     private void OnDisable()
     {
+        jump.Disable();
         WallRunLeft.Disable();
         WallRunRight.Disable();
         move.Disable();
@@ -111,13 +117,17 @@ public class PlayerMovement : MonoBehaviour
         tempHorizontal = tempMove.x;
         tempVertical = tempMove.y;
 
+    }
+
+    private void InputJump(InputAction.CallbackContext context)
+    {
         //Player can jump if space pressed, on ground, and not wall running
-        if (Input.GetKeyDown(KeyCode.Space) && grounded && canJump && wallRunning == false)
+        if (grounded && canJump && wallRunning == false)
         {
             canJump = false;
 
             Jump();
-
+            SoundManager.instance.PlaySoundClip(jumpClip, transform, 0.8f);
             //Resets jump
             Invoke(nameof(JumpReset), jumpCooldown);
         }

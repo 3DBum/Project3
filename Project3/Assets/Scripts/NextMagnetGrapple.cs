@@ -35,6 +35,7 @@ public class NextMagnetGrapple : MonoBehaviour
     Vector3 closestPoint;
     Vector3 direction;
 
+    [SerializeField] private AudioClip grappleSound;
     private Collider[] hitColliders;
     private InputAction grapple;
 
@@ -108,6 +109,7 @@ public class NextMagnetGrapple : MonoBehaviour
         }
         canGrapple = false;
         rb.velocity = CalculateVelocity();
+        SoundManager.instance.PlaySoundClip(grappleSound, transform, 0.8f);
         print(CalculateVelocity());
         StartCoroutine(GrappleCoolDown());
     }

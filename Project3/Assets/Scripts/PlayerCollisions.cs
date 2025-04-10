@@ -13,6 +13,8 @@ public class PlayerCollisions : MonoBehaviour
     public bool MapKey;
     public bool Damage;
 
+    [SerializeField] private AudioClip damageSound; 
+
     GameManager GameManager;
 
     // Start is called before the first frame update
@@ -103,7 +105,7 @@ public class PlayerCollisions : MonoBehaviour
     {
         Health--;
         Debug.Log("Player lost a life");
-
+        SoundManager.instance.PlaySoundClip(damageSound, transform, 0.8f);
         if(Health == 0)
         {
             GameManager.Lose();

@@ -435,8 +435,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749991283974638170}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07591992, y: -0.000000033223845, z: 0.0000000025296525, w: 0.99711394}
-  m_LocalPosition: {x: 0, y: 1, z: -3}
+  m_LocalRotation: {x: 0.20106587, y: 0, z: 0, w: 0.9795777}
+  m_LocalPosition: {x: 0, y: 5, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -814,7 +814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380268671869848779}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22077222, y: -0.0000017886736, z: 0.00000040487967, w: 0.9753254}
+  m_LocalRotation: {x: 0.22077212, y: 0, z: 0, w: 0.9753254}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -972,6 +972,7 @@ Transform:
   - {fileID: 6755742247873225742}
   - {fileID: 9004233554600507989}
   - {fileID: 6515358114077334374}
+  - {fileID: 4591708880458387959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &7062275546628002105
@@ -1030,6 +1031,7 @@ MonoBehaviour:
   wallRight: 0
   wallLeft: 0
   wallRunning: 0
+  jumpClip: {fileID: 8300000, guid: 9bae4d2cc8dbbd647bec280b024e8d00, type: 3}
 --- !u!114 &1798175451163067509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,6 +1049,7 @@ MonoBehaviour:
   StorageKey: 0
   MapKey: 0
   Damage: 0
+  damageSound: {fileID: 8300000, guid: 919a70755faefe44295ce37d4440fbb1, type: 3}
 --- !u!54 &5408544192220544885
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1097,6 +1100,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   movement: {fileID: 3268075601993678834}
+  grappleSound: {fileID: 8300000, guid: e5a3476a5262c7441b8194e733c3ee22, type: 3}
 --- !u!114 &5270176363414566145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1165,7 +1169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5330757182941478823}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24896151, y: -0.0000012320576, z: 0.00000031670697, w: 0.96851337}
+  m_LocalRotation: {x: 0.24895708, y: 0, z: 0, w: 0.96851456}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1346,6 +1350,51 @@ MonoBehaviour:
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
+--- !u!1 &6429511149120891434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4591708880458387959}
+  - component: {fileID: 3180260845789808742}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4591708880458387959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6429511149120891434}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8236561359646708579}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3180260845789808742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6429511149120891434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0221e9588686374d80373b64aa0e431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFXObject: {fileID: 1718904593940982820, guid: cc3451b3af6c39e4293ef32007a18a6b, type: 3}
 --- !u!1 &8020535892278184150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,7 +1467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8875455975910792875}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20106587, y: -0, z: -0, w: 0.9795777}
+  m_LocalRotation: {x: 0.20106587, y: 0, z: 0, w: 0.9795777}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
