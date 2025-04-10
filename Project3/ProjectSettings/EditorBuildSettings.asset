@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 2260a217a3ad8024a9e0b5fb7c1e1d8b
   - enabled: 0
@@ -14,16 +14,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/GamePlayTest.unity
     guid: cc39db756ace37a4f93e865a952bd209
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ElectricityRoom.unity
     guid: 98ea4c2313e5aea4d8106429796d8891
   - enabled: 0
     path: Assets/Scenes/TestingRoom.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: d9078d69372bfb748a4952bc01999055
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Instructions.unity
     guid: e818415161d36ed4e86bb77dcb87ba91
   m_configObjects: {}
