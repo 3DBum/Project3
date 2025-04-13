@@ -204,19 +204,19 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(orientation.right * wallForce / 5 * Time.deltaTime);
 
-                if(Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.S))
+               /* if(Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.S))
                 {
                     moveSpeed = 0;
-                }
+                }*/
             }
             else
             {
                 rb.AddForce(-orientation.right * wallForce / 5  * Time.deltaTime);
 
-                if(Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.S))
+               /* if(Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.S))
                 {
                     moveSpeed = 0;
-                }
+                }*/
             }
         }
     }
@@ -236,11 +236,9 @@ public class PlayerMovement : MonoBehaviour
              EndWallRun();
          } 
 
-         if (wallLeft && rb.velocity.magnitude == 0 || wallRight && rb.velocity.magnitude == 0)
+        /* if (wallLeft && rb.velocity.magnitude == 0 || wallRight && rb.velocity.magnitude == 0)
          {
              EndWallRun();
-         }
+         }*/
      }
-
-
 }

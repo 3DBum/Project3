@@ -5633,6 +5633,10 @@ PrefabInstance:
       propertyPath: playerControls.m_SingletonActionBindings.Array.data[6].m_Action
       value: Player Controls
       objectReference: {fileID: 0}
+    - target: {fileID: 3319986209252667598, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3608130854064318208, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
