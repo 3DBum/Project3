@@ -31575,7 +31575,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.6901961, g: 0.67058825, b: 0.67058825, a: 1}
+  m_Color: {r: 0.8392157, g: 0.12156863, b: 0.14509805, a: 1}
   m_Intensity: 1
   m_Range: 50
   m_SpotAngle: 179
@@ -37941,7 +37941,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.6901961, g: 0.67058825, b: 0.67058825, a: 1}
+  m_Color: {r: 0.8392157, g: 0.12156863, b: 0.14509805, a: 1}
   m_Intensity: 1
   m_Range: 50
   m_SpotAngle: 179
@@ -52464,7 +52464,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.6901961, g: 0.67058825, b: 0.67058825, a: 1}
+  m_Color: {r: 0.8392157, g: 0.12156863, b: 0.14509805, a: 1}
   m_Intensity: 1
   m_Range: 50
   m_SpotAngle: 179
@@ -54018,7 +54018,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.6901961, g: 0.67058825, b: 0.67058825, a: 1}
+  m_Color: {r: 0.8392157, g: 0.12156863, b: 0.14509805, a: 1}
   m_Intensity: 1
   m_Range: 50
   m_SpotAngle: 179
@@ -60011,19 +60011,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8097470628111243462, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.25124127
+      value: -0.25124115
       objectReference: {fileID: 0}
     - target: {fileID: 8097470628111243462, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.080152236
+      value: -0.08015221
       objectReference: {fileID: 0}
     - target: {fileID: 8097470628111243462, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9189682
+      value: 0.91896826
       objectReference: {fileID: 0}
     - target: {fileID: 8097470628111243462, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.2931738
+      value: -0.29317385
       objectReference: {fileID: 0}
     - target: {fileID: 8115425185208993694, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_Name
@@ -60047,19 +60047,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8142649201963785115, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.24863993
+      value: -0.24863976
       objectReference: {fileID: 0}
     - target: {fileID: 8142649201963785115, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.08788425
+      value: -0.087884195
       objectReference: {fileID: 0}
     - target: {fileID: 8142649201963785115, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.909461
+      value: 0.9094611
       objectReference: {fileID: 0}
     - target: {fileID: 8142649201963785115, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.321458
+      value: -0.32145804
       objectReference: {fileID: 0}
     - target: {fileID: 8236561359646708579, guid: 53dcfa6ae37a7c742b6f9643165819db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -61997,7 +61997,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.6886792, g: 0.6724368, b: 0.6724368, a: 1}
+  m_Color: {r: 0.8392157, g: 0.12156863, b: 0.14509805, a: 1}
   m_Intensity: 1
   m_Range: 50
   m_SpotAngle: 179
@@ -66854,7 +66854,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.6901961, g: 0.67058825, b: 0.67058825, a: 1}
+  m_Color: {r: 0.8392157, g: 0.12156863, b: 0.14509805, a: 1}
   m_Intensity: 1
   m_Range: 50
   m_SpotAngle: 179
@@ -67372,7 +67372,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.6901961, g: 0.67058825, b: 0.67058825, a: 1}
+  m_Color: {r: 0.8392157, g: 0.12156863, b: 0.14509805, a: 1}
   m_Intensity: 1
   m_Range: 50
   m_SpotAngle: 179
